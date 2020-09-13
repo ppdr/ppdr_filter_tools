@@ -20,7 +20,7 @@ int main(int argc, char** argv){
 
   std::random_device rnd;
   std::mt19937 mt(rnd());
-  std::normal_distribution<> norm(0, 0.1);
+  std::normal_distribution<> norm(0, 0.01);
 
   double omega = 6.28;
 

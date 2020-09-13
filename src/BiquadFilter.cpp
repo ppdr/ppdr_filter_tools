@@ -122,3 +122,8 @@ double BiquadFilter::filter(const double x)
 
   return _y[0];
 }
+
+void BiquadFilter::show_factor(){
+  std::cout << "(a0, a1, a2) = " << _a[0] << ", " << _a[1] << ", " << _a[2] << std::endl;
+  std::cout << "(b0, b1, b2) = " << _b[0] << ", " << _b[1] << ", " << _b[2] << std::endl;
+}

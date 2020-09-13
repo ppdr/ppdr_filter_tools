@@ -21,6 +21,7 @@ public:
     void init_lpf(const double f_sampling, const double w_cutoff);
     void init_differentiator(const double f_sampling, const double w_cutoff);
     double filter(const double x);
+    void show_factor();
 };
 
 #endif

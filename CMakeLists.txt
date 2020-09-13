@@ -93,6 +93,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate dynamic reconfigure parameters in the 'cfg' folder
 generate_dynamic_reconfigure_options(
   cfg/filter_param.cfg
+  cfg/biquad_filter_cascade.cfg
 )
 
 ###################################
@@ -164,6 +165,12 @@ target_link_libraries(BiquadFilter
   ${catkin_LIBRARIES}
 )
 
+add_library(BiquadFilterCascade src/BiquadFilterCascade.cpp)
+target_link_libraries(BiquadFilterCascade
+  BiquadFilter
+  ${catkin_LIBRARIES}
+)
+
 add_executable(odom_publisher_with_noise src/odom_publisher_with_noise.cpp)
 target_link_libraries(odom_publisher_with_noise
   ${catkin_LIBRARIES}
@@ -172,6 +179,7 @@ target_link_libraries(odom_publisher_with_noise
 add_executable(odom_filter_node src/odom_filter_node.cpp)
 target_link_libraries(odom_filter_node
   BiquadFilter
+  BiquadFilterCascade
   ${catkin_LIBRARIES}
 )
 add_dependencies(odom_filter_node
