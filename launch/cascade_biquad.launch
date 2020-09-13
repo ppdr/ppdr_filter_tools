@@ -1,17 +1,17 @@
 <launch>
-    <node pkg="ppdr_filter_tools" type="differentiator" name="diff1">
+    <node pkg="ppdr_filter_tools" type="odom_filter_node" name="filter1">
         <remap from="~odom_with_noise" to="odom_with_noise"/>
     </node>
 
-    <node pkg="ppdr_filter_tools" type="differentiator" name="diff2">
-        <remap from="~odom_with_noise" to="diff1/odom_filtered"/>
+    <node pkg="ppdr_filter_tools" type="odom_filter_node" name="filter2">
+        <remap from="~odom_with_noise" to="filter1/odom_filtered"/>
     </node>
 
-    <node pkg="ppdr_filter_tools" type="differentiator" name="diff3">
-        <remap from="~odom_with_noise" to="diff2/odom_filtered"/>
+    <node pkg="ppdr_filter_tools" type="odom_filter_node" name="filter3">
+        <remap from="~odom_with_noise" to="filter2/odom_filtered"/>
     </node>
 
-    <node pkg="ppdr_filter_tools" type="differentiator" name="diff4">
-        <remap from="~odom_with_noise" to="diff3/odom_filtered"/>
+    <node pkg="ppdr_filter_tools" type="odom_filter_node" name="filter4">
+        <remap from="~odom_with_noise" to="filter3/odom_filtered"/>
     </node>
 </launch>

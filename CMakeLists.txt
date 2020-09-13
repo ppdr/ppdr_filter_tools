@@ -169,12 +169,12 @@ target_link_libraries(odom_publisher_with_noise
   ${catkin_LIBRARIES}
 )
 
-add_executable(differentiator src/differentiator.cpp)
-target_link_libraries(differentiator
+add_executable(odom_filter_node src/odom_filter_node.cpp)
+target_link_libraries(odom_filter_node
   BiquadFilter
   ${catkin_LIBRARIES}
 )
-add_dependencies(differentiator
+add_dependencies(odom_filter_node
   ${${PROJECT_NAME}_EXPORTED_TARGETS}
   ${catkin_EXPORTED_TARGETS}
 )

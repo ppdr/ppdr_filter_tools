@@ -36,7 +36,7 @@ void odom_callback(const nav_msgs::Odometry::ConstPtr& msg){
 }
 
 int main(int argc, char** argv){
-  ros::init(argc, argv, "differentiator");
+  ros::init(argc, argv, "odom_filter_node");
   ros::NodeHandle nh("~");
 
   ros::Subscriber odom_sub = nh.subscribe("odom_with_noise", 10, odom_callback);
